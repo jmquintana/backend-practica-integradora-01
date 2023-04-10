@@ -1,0 +1,38 @@
+{
+	"name": "practica-integradora-01",
+	"version": "1.0.0",
+	"description": "---",
+	"main": "app.js",
+	"type": "module",
+	"scripts": {
+		"dev": "nodemon ./src/app.js",
+		"start": "node ./src/app.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"nodemonConfig": {
+		"ignore": [
+			"./src/files/*.json"
+		]
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jmquintana/backend-practica-integradora-01.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/jmquintana/backend-desafio-05/issues"
+	},
+	"homepage": "https://github.com/jmquintana/backend-desafio-05#readme",
+	"dependencies": {
+		"animate.css": "^4.1.1",
+		"dotenv": "^16.0.3",
+		"express": "^4.18.2",
+		"express-handlebars": "^7.0.2",
+		"mongoose": "^7.0.3",
+		"multer": "^1.4.5-lts.1",
+		"nodemon": "^2.0.21",
+		"socket.io": "^4.6.1"
+	}
+}

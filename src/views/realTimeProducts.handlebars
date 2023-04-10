@@ -1,0 +1,179 @@
+<div class="main-container" id="custom-target">
+	<div class="modal animate__animated animate__faster">
+		<form
+			action="/api/products"
+			id="addProductForm"
+			class="form hidden animate__animated animate__faster"
+			method="POST"
+			enctype="multipart/form-data"
+		>
+			<div class="form-title">Nuevo producto</div>
+			<div class="subtitle">Agrega un nuevo producto a la lista</div>
+			<div class="input-container ic1">
+				<input
+					name="title"
+					id="title"
+					class="input"
+					type="text"
+					placeholder=" "
+					value="manzana"
+				/>
+				<div class="cut"></div>
+				<label for="title" class="placeholder">Producto</label>
+			</div>
+			<div class="input-container ic2">
+				<input
+					name="description"
+					id="description"
+					class="input"
+					type="text"
+					placeholder=" "
+					value="fruta del árbol manzanero"
+				/>
+				<div class="cut cut-large"></div>
+				<label for="description" class="placeholder">Descripción</label>
+			</div>
+			<div class="input-container ic2">
+				<input
+					name="category"
+					id="category"
+					class="input"
+					type="text"
+					placeholder=" "
+					value="fruta"
+				/>
+				<div class="cut"></div>
+				<label for="category" class="placeholder">Categoría</label>
+			</div>
+			<div class="input-container ic2">
+				<input
+					name="code"
+					id="code"
+					class="input"
+					type="text"
+					placeholder=" "
+					value="ASD6545"
+				/>
+				<div class="cut cut-middle"></div>
+				<label for="code" class="placeholder">Código</label>
+			</div>
+			<div class="input-container ic2">
+				<input
+					name="price"
+					id="price"
+					class="input"
+					type="text"
+					placeholder=" "
+					value="123"
+				/>
+				<div class="cut cut-middle"></div>
+				<label for="price" class="placeholder">Precio</label>
+			</div>
+			<div class="input-container ic2">
+				<input
+					name="stock"
+					id="stock"
+					class="input"
+					type="text"
+					placeholder=" "
+					value="1000"
+				/>
+				<div class="cut cut-short"></div>
+				<label for="stock" class="placeholder">Stock</label>
+			</div>
+			<div class="input-container-thumbnails ic2">
+				<div class="input-container">
+					<input
+						class="file-upload__input input"
+						type="file"
+						name="thumbnails"
+						id="thumbnails"
+						multiple
+					/>
+					<div class="cut thumbnails-cut"></div>
+					<label
+						for="thumbnails"
+						class="placeholder thumbnails-placeholder"
+					>Imágenes</label>
+					<div class="file-upload__label input"></div>
+					<button class="browse-btn btn" type="button">Buscar</button>
+				</div>
+				{{! <div class="input-container">
+					<input
+						name="thumbnails"
+						id="thumbnails"
+						class="input"
+						type="file"
+						multiple
+						accept="image/*"
+						placeholder=" "
+					/>
+				</div> }}
+				{{! <button type="button" class="browse-btn">Buscar</button> }}
+			</div>
+			<button
+				type="submit"
+				form="addProductForm"
+				class="submit"
+				name="submit"
+			>Agregar</button>
+		</form>
+	</div>
+	<div class="overlay hidden animate__animated animate__faster"></div>
+	<div class="products-main-container">
+		<div class="list-header">
+			<div class="list-title">Lista de productos</div>
+			<div class="open-modal-btn btn">Nuevo</div>
+		</div>
+		<div class="list-container">
+			<div class="product-list">
+				{{#each products}}
+					<div id={{this._id}} class="product-item-full">
+						<div class="product-item-text">
+							<div class="first row">
+								<div class="item-title">
+									{{this.title}}
+								</div>
+								<div class="item-code">
+									Cod:
+									{{this.code}}
+								</div>
+							</div>
+							<div class="second row">
+								<div class="item-description">
+									{{this.description}}
+								</div>
+							</div>
+							<div class="third row">
+								<div class="item-price">
+									$
+									{{this.price}}
+								</div>
+								<div class="item-stock">
+									Stock:
+									{{this.stock}}
+									unidades
+								</div>
+							</div>
+						</div>
+						<div class="item-thumbnails">
+							{{#each this.thumbnails}}
+								<div class="item-thumbnail">
+									<img src="{{this}}" alt="" />
+								</div>
+							{{else}}
+								<div class="no-image">Sin imágenes</div>
+							{{/each}}
+						</div>
+						<div class="delete-btn btn">Borrar</div>
+					</div>
+				{{else}}
+					<div class="no-products">No products loaded</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>

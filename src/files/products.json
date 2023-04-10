@@ -1,0 +1,13 @@
+[
+	{
+		"title": "Puerro",
+		"description": "planta de la familia de los lirios",
+		"category": "verdura",
+		"code": "STU5678",
+		"price": 25,
+		"stock": 456,
+		"thumbnails": [],
+		"status": true,
+		"id": 8
+	}
+]

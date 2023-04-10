@@ -1,0 +1,54 @@
+<div class="main-container">
+	<div class="products-main-container">
+		<div class="list-header">
+			<div class="list-title">Lista de productos</div>
+		</div>
+		<div class="list-container">
+			<div class="product-list">
+				{{#each products}}
+					<div id={{this._id}} class="product-item-full">
+						<div class="product-item-text">
+							<div class="first row">
+								<div class="item-title">
+									{{this.title}}
+								</div>
+								<div class="item-code">
+									Código:
+									{{this.code}}
+								</div>
+							</div>
+							<div class="second row">
+								<div class="item-description">
+									{{this.description}}
+								</div>
+							</div>
+							<div class="third row">
+								<div class="item-price">
+									$
+									{{this.price}}
+								</div>
+								<div class="item-stock">
+									Stock:
+									{{this.stock}}
+									unidades
+								</div>
+							</div>
+						</div>
+						<div class="item-thumbnails">
+							{{#each this.thumbnails}}
+								<img class="item-thumbnail" src="{{this}}" alt="" />
+							{{else}}
+								<div class="no-image">Sin imágenes</div>
+							{{/each}}
+						</div>
+					</div>
+				{{else}}
+					<div class="no-products">No products loaded</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>
