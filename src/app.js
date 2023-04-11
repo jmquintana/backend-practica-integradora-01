@@ -14,6 +14,7 @@ const app = express();
 const PORT = 8080;
 const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = process.env.DB_PASS;
+const DB_NAME = process.env.DB_NAME;
 
 app.engine("handlebars", handlebars.engine());
 app.set("views", `${__dirname}/views`);
@@ -24,7 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", express.static(`${__dirname}/public`));
 
 mongoose.connect(
-	`mongodb+srv://${DB_USER}:${DB_PASSWORD}@codercluster.tgft5r9.mongodb.net/?retryWrites=true&w=majority`
+	`mongodb+srv://${DB_USER}:${DB_PASSWORD}@codercluster.tgft5r9.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`
 );
 
 app.use("/api/products", productsRouter);

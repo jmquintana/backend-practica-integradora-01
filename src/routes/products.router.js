@@ -3,7 +3,7 @@ import { Router } from "express";
 import { uploader } from "../utils.js";
 import socket from "../socket.js";
 import { productModel } from "../dao/models/products.model.js";
-import ProductManager from "../dao/managersFS/ProductManager.js";
+import ProductManager from "../dao/filesManager/ProductManager.js";
 
 const router = Router();
 // const manager = new ProductManager();
